@@ -1,0 +1,44 @@
+Par exemple, nous avons défini deux télécommandes origin et upstream.
+
+git remote -v
+
+Production:
+
+origin      git@gitlab.com:delftstack/programmingarticles.git (fetch)
+origin      git@gitlab.com:delftstack/programmingarticles.git (push)
+upstream    git@bitbucket.org:delftstack/test.git (fetch)
+upstream    git@bitbucket.org:delftstack/test.git (push)
+
+Nous utilisons la commande git remote rm suivie du nom de la télécommande pour supprimer une télécommande.
+
+git remote rm upstream
+Cela supprime upstream de la liste des distants de git.
+
+Maintenant, si nous regardons la liste des fichiers distants, nous remarquerons que le upstream est supprimé.
+
+git remote -v
+
+Production:
+
+origin	git@gitlab.com:delftstack/programmingarticles.git (fetch)
+origin	git@gitlab.com:delftstack/programmingarticles.git (push)
+
+La commande git remote rm supprime les entrées concernant le dépôt distant spécifié du fichier .git/config.
+
+Nous pouvons également éditer manuellement le fichier .git/config pour supprimer git remote; cependant, ce n’est pas considéré comme une bonne pratique.
+
+Lorsque nous essayons de supprimer un fichier distant qui n’est pas présent, nous obtenons une erreur disant fatal: No such remote: '<remote-name>'.
+
+git remote rm DelftStack
+Production:
+
+fatal: No such remote: DelftStack
+Dans l’exemple de repo, il n’y a qu’un seul remote nommé origin. Lorsque nous lançons git remote rm DelftStack, nous obtenons une erreur car il n’y a pas de remote DelftStack présent.
+
+Supprimer une URL distante Git en utilisant git remote remove
+Il est similaire à la commande git remote rm et fonctionne également de manière similaire.
+
+Nous utilisons la commande git remote remove suivie du nom de la télécommande pour supprimer une télécommande.
+
+git remote remove upstream
+Cela supprime upstream de la liste des distants git.
